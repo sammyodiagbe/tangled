@@ -9,24 +9,29 @@ class AuthScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           body: Container(
-        child: Column(
-          children: [
-            CountryPickerDropdown(
-              onValuePicked: (value) {},
-              initialValue: "CA",
-              itemBuilder: (country) {
-                return Row(
-                  children: [
-                    CountryPickerUtils.getDefaultFlagImage(country),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text("+${country.phoneCode}")
-                  ],
-                );
-              },
-            )
-          ],
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CountryPickerDropdown(
+                onValuePicked: (value) {},
+                initialValue: "CA",
+                itemBuilder: (country) {
+                  return Row(
+                    children: [
+                      CountryPickerUtils.getDefaultFlagImage(country),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text("+${country.phoneCode}")
+                    ],
+                  );
+                },
+              )
+            ],
+          ),
         ),
       )),
     );
