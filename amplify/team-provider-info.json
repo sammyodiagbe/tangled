@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tangled-dev-233502-authRole",
+      "UnauthRoleArn": "arn:aws:iam::616641553591:role/amplify-tangled-dev-233502-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::616641553591:role/amplify-tangled-dev-233502-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-tangled-dev-233502-deployment",
+      "UnauthRoleName": "amplify-tangled-dev-233502-unauthRole",
+      "StackName": "amplify-tangled-dev-233502",
+      "StackId": "arn:aws:cloudformation:us-east-1:616641553591:stack/amplify-tangled-dev-233502/e341ede0-5b30-11ed-b267-0a9d8c891405",
+      "AmplifyAppId": "d2e57cf5njrjjn"
+    },
+    "categories": {
+      "auth": {
+        "tangled059510de": {}
+      }
+    }
+  }
+}
