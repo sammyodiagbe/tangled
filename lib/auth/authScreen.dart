@@ -1,3 +1,4 @@
+import 'package:country_picker/country_picker.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 import 'package:tangled/services/authService.dart';
@@ -5,21 +6,23 @@ import 'package:tangled/services/authService.dart';
 class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return SafeArea(
+      child: Scaffold(
+          body: Container(
         child: Column(
           children: [
-            Text("Click me and see what happens"),
-            SizedBox(height: 15),
             ElevatedButton(
-              onPressed: () {
-                Provider.of<AuthService>(context, listen: false).SignUserIn();
-              },
-              child: Text("Click me"),
-            )
+                onPressed: () {
+                  showCountryPicker(
+                      context: context,
+                      onSelect: (value) {
+                        print("You selected ${value.name}");
+                      });
+                },
+                child: Text("Click me"))
           ],
         ),
-      ),
+      )),
     );
   }
 }
