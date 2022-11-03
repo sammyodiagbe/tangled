@@ -2,20 +2,24 @@ import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 import 'package:tangled/services/authService.dart';
 
-class AuthScreen extends StatelessWidget {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [],
+        title: Text('Home'),
+      ),
       body: Center(
         child: Row(
           children: [
-            Text("Click me and see what happens"),
+            Text("Welcome home"),
             SizedBox(height: 15),
             ElevatedButton(
               onPressed: () {
-                Provider.of<AuthService>(context, listen: false).SignUserIn();
+                Provider.of<AuthService>(context, listen: false).signOut();
               },
-              child: Text("Click me"),
+              child: Text("Log out"),
             )
           ],
         ),
