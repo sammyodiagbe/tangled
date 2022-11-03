@@ -7,7 +7,7 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Row(
+        child: Column(
           children: [
             Text("Click me and see what happens"),
             SizedBox(height: 15),

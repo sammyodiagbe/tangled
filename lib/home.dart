@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
         title: Text('Home'),
       ),
       body: Center(
-        child: Row(
+        child: Column(
           children: [
             Text("Welcome home"),
             SizedBox(height: 15),
