@@ -35,16 +35,16 @@ class TangledApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => AuthService(),
       child: MaterialApp(
-          theme: ThemeData(
-            fontFamily: "Nunito",
-          ),
-          routes: {
-            Signup.id: (context) => Signup(),
-            Signin.id: (context) => Signin()
-          },
-          debugShowCheckedModeBanner: false,
-          home: VerifyOTP() //AuthWrapper(),
-          ),
+        theme: ThemeData(
+          fontFamily: "Nunito",
+        ),
+        routes: {
+          Signup.id: (context) => Signup(),
+          Signin.id: (context) => Signin()
+        },
+        debugShowCheckedModeBanner: false,
+        home: AuthWrapper(),
+      ),
     );
   }
 }
