@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:tangled/amplifyconfiguration.dart';
 import 'package:tangled/auth/signin.dart';
 import 'package:tangled/auth/signup.dart';
+import 'package:tangled/auth/verify_otp.dart';
 import 'package:tangled/services/authService.dart';
 
 import 'authWrapper.dart';
@@ -34,13 +35,16 @@ class TangledApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => AuthService(),
       child: MaterialApp(
-        routes: {
-          Signup.id: (context) => Signup(),
-          Signin.id: (context) => Signin()
-        },
-        debugShowCheckedModeBanner: false,
-        home: AuthWrapper(),
-      ),
+          theme: ThemeData(
+            fontFamily: "Nunito",
+          ),
+          routes: {
+            Signup.id: (context) => Signup(),
+            Signin.id: (context) => Signin()
+          },
+          debugShowCheckedModeBanner: false,
+          home: VerifyOTP() //AuthWrapper(),
+          ),
     );
   }
 }

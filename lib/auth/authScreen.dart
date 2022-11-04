@@ -31,6 +31,7 @@ class AuthScreen extends StatelessWidget {
                     ),
                   ),
                   style: ButtonStyle(
+                    elevation: MaterialStateProperty.all<double>(0),
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.white),
                     backgroundColor: MaterialStateProperty.all<Color>(
@@ -46,13 +47,14 @@ class AuthScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, Signup.id);
                   },
                   child: Text("Create an account"),
                   style: ButtonStyle(
+                    elevation: MaterialStateProperty.all<double>(0),
                     foregroundColor: MaterialStateProperty.all<Color>(
                       Color(0xff312F2F),
                     ),

@@ -1,17 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 import "package:flutter/material.dart";
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
-class Signup extends StatelessWidget {
-  static final id = 'Signup';
-
+class VerifyOTP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: Center(
+      body: Center(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -23,20 +19,21 @@ class Signup extends StatelessWidget {
                   color: Color(0xff312F2F),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: 20),
               Text(
-                "After providing your phone number, we would send you an OTP to verify.",
+                "Enter OTP sent to +1 431 275 9924",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(0xff312F2F),
+                  fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(height: 20),
               TextField(
+                maxLength: 5,
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  hintText: "What should we call you?",
+                  hintText: "00000",
                   hintStyle: TextStyle(fontSize: 14),
                   filled: true,
                   fillColor: Color(0xffEDF2F4),
@@ -46,27 +43,11 @@ class Signup extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              InternationalPhoneNumberInput(
-                onInputChanged: (value) {},
-                spaceBetweenSelectorAndTextField: 5,
-                inputDecoration: InputDecoration(
-                    filled: true,
-                    fillColor: Color(0xffEDF2F4),
-                    hintStyle: TextStyle(fontSize: 14),
-                    hintText: "Phone number",
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(8.0),
-                    )),
-              ),
-              SizedBox(height: 20),
+              SizedBox(height: 15),
               ElevatedButton(
                 onPressed: () {},
                 child: Text(
-                  "Create account",
+                  "Verify",
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                   ),
@@ -92,6 +73,6 @@ class Signup extends StatelessWidget {
           ),
         ),
       ),
-    ));
+    );
   }
 }
