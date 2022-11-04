@@ -5,6 +5,8 @@ import 'package:amplify_flutter/amplify_flutter.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 import 'package:tangled/amplifyconfiguration.dart';
+import 'package:tangled/auth/signin.dart';
+import 'package:tangled/auth/signup.dart';
 import 'package:tangled/services/authService.dart';
 
 import 'authWrapper.dart';
@@ -32,6 +34,10 @@ class TangledApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => AuthService(),
       child: MaterialApp(
+        routes: {
+          Signup.id: (context) => Signup(),
+          Signin.id: (context) => Signin()
+        },
         debugShowCheckedModeBanner: false,
         home: AuthWrapper(),
       ),
