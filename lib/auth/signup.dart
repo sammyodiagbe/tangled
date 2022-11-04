@@ -48,7 +48,18 @@ class Signup extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              InternationalPhoneNumberInput(onInputChanged: (value) {}),
+              InternationalPhoneNumberInput(
+                onInputChanged: (value) {},
+                spaceBetweenSelectorAndTextField: 5,
+                inputDecoration: InputDecoration(
+                    filled: true,
+                    fillColor: Color(0xffEDF2F4),
+                    hintStyle: TextStyle(fontSize: 14),
+                    hintText: "Phone number",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                    )),
+              ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {},
