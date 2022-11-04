@@ -32,6 +32,7 @@ class TangledApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => AuthService(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: AuthWrapper(),
       ),
     );
