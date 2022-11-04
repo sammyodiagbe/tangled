@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import "package:flutter/material.dart";
+import 'package:tangled/auth/signup.dart';
 
 class AuthScreen extends StatelessWidget {
   @override
@@ -47,7 +48,9 @@ class AuthScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 8),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, Signup.id);
+                  },
                   child: Text("Create an account"),
                   style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.all<Color>(
