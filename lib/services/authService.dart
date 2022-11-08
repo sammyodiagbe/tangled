@@ -11,15 +11,19 @@ class AuthService extends ChangeNotifier {
       String name, String mobile, String password) async {
     try {
       await Amplify.Auth.signUp(
-        username: name,
+        username: mobile,
         password: password,
         options: CognitoSignUpOptions(
           userAttributes: <CognitoUserAttributeKey, String>{
-            CognitoUserAttributeKey.phoneNumber: mobile
+            CognitoUserAttributeKey.name: name,
+            CognitoUserAttributeKey.email: "hello@test.mail"
           },
         ),
       );
-    } catch (err) {}
+      print("done signing you up");
+    } catch (err) {
+      print(err);
+    }
   }
 
   void SignUserIn() {
