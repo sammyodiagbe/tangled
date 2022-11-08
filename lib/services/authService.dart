@@ -16,7 +16,6 @@ class AuthService extends ChangeNotifier {
         options: CognitoSignUpOptions(
           userAttributes: <CognitoUserAttributeKey, String>{
             CognitoUserAttributeKey.name: name,
-            CognitoUserAttributeKey.email: "hello@test.mail"
           },
         ),
       );
