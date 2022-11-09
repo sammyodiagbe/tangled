@@ -2,6 +2,7 @@
 import "package:flutter/material.dart";
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:provider/provider.dart';
+import 'package:tangled/auth/verify_otp.dart';
 import 'package:tangled/services/authService.dart';
 
 class Signup extends StatefulWidget {
@@ -128,8 +129,16 @@ class _SignupState extends State<Signup> {
                                 String mobile = _mobileController.text;
                                 String name = _usernameController.text;
                                 String password = _passwordController.text;
-                                provider.signUpWithMobile(
-                                    name, mobile, password);
+                                provider
+                                    .signUpWithMobile(name, mobile, password)
+                                    .then((value) {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          VerifyOTP(mobileNumber: mobile),
+                                    ),
+                                  );
+                                });
                               }
                             },
                             child: Text(

@@ -25,13 +25,16 @@ class AuthService extends ChangeNotifier {
     }
   }
 
-  // Future<void> sendOTP(String mobile)  async{
-  //   try {
-  //     await Amplify.Auth.con
-  //   }catch(err) {
-  //     print(err)
-  //   }
-  // }
+  Future<void> VerifyOTP(String mobile, String confirmationCode) async {
+    try {
+      await Amplify.Auth.confirmSignUp(
+          username: mobile, confirmationCode: confirmationCode);
+      authState = AuthState.Authenticated;
+      notifyListeners();
+    } catch (err) {
+      print(err);
+    }
+  }
 
   void SignUserIn() {
     authState = AuthState.Authenticated;
