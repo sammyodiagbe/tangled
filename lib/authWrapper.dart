@@ -8,13 +8,10 @@ import 'home.dart';
 class AuthWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Consumer<AuthService>(
-      builder: (context, provider, child) {
-        if (provider.authState == AuthState.Authenticated) {
-          return Home();
-        }
-        return AuthScreen();
-      },
-    );
+    var authState = context.watch<AuthService>().authState;
+    if (authState == AuthState.Authenticated) {
+      return Home();
+    }
+    return AuthScreen();
   }
 }
