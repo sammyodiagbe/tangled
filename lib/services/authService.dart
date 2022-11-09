@@ -7,6 +7,14 @@ enum AuthState { Authenticated, NotAuthenticated }
 class AuthService extends ChangeNotifier {
   var authState = AuthState.NotAuthenticated;
 
+  Future<AuthUser?> get user async {
+    try {
+      final usr = await Amplify.Auth.getCurrentUser();
+      return usr;
+    } catch (err) {}
+    return null;
+  }
+
   Future<void> signUpWithMobile(
       String name, String mobile, String password) async {
     try {
