@@ -126,16 +126,16 @@ class _SignupState extends State<Signup> {
                           ElevatedButton(
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
-                                String mobile = _mobileController.text;
+                                String email = _mobileController.text;
                                 String name = _usernameController.text;
                                 String password = _passwordController.text;
                                 provider
-                                    .signUpWithMobile(name, mobile, password)
+                                    .createAccount(name, email, password)
                                     .then((value) {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          VerifyOTP(mobileNumber: mobile),
+                                          VerifyOTP(email: email),
                                     ),
                                   );
                                 });

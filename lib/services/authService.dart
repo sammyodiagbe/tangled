@@ -15,15 +15,14 @@ class AuthService extends ChangeNotifier {
     return null;
   }
 
-  Future<void> signUpWithMobile(
-      String name, String mobile, String password) async {
+  Future<void> createAccount(String name, String email, String password) async {
     try {
       await Amplify.Auth.signUp(
-        username: mobile,
+        username: email,
         password: password,
         options: CognitoSignUpOptions(
           userAttributes: <CognitoUserAttributeKey, String>{
-            CognitoUserAttributeKey.name: name,
+            CognitoUserAttributeKey.email: email,
           },
         ),
       );

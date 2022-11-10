@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:tangled/services/authService.dart';
 
 class VerifyOTP extends StatefulWidget {
-  const VerifyOTP({super.key, required this.mobileNumber});
+  const VerifyOTP({super.key, required this.email});
 
-  final String mobileNumber;
+  final String email;
 
   @override
   State<VerifyOTP> createState() => _VerifyOTPState();
@@ -38,7 +38,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    "Enter OTP sent to ${widget.mobileNumber}",
+                    "Enter OTP sent to ${widget.email}",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xff312F2F),
@@ -66,7 +66,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         provider.VerifyOTP(
-                            widget.mobileNumber, _mobileController.text);
+                            widget.email, _mobileController.text);
                       }
                     },
                     child: Text(

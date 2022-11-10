@@ -1,10 +1,12 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "resourceNameTruncated": "tangle249a03d4",
-    "userPoolName": "tangled249a03d4_userpool_249a03d4",
+    "identityPoolName": "tanglede3d1c147_identitypool_e3d1c147",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "tanglee3d1c147",
+    "userPoolName": "tanglede3d1c147_userpool_e3d1c147",
     "autoVerifiedAttributes": [
-      "phone_number"
+      "email"
     ],
     "mfaConfiguration": "OFF",
     "mfaTypes": [
@@ -14,15 +16,11 @@
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
-    "defaultPasswordPolicy": true,
+    "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
-    "passwordPolicyCharacters": [
-      "Requires Lowercase",
-      "Requires Uppercase",
-      "Requires Numbers",
-      "Requires Symbols"
-    ],
+    "passwordPolicyCharacters": [],
     "requiredAttributes": [
+      "email",
       "name"
     ],
     "aliasAttributes": [],
@@ -34,22 +32,19 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "tangle249a03d4_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "tanglee3d1c147_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "249a03d4",
-    "resourceName": "tangled249a03d4249a03d4",
-    "authSelections": "userPoolOnly",
-    "useDefault": "manual",
+    "sharedId": "e3d1c147",
+    "resourceName": "tanglede3d1c147",
+    "authSelections": "identityPoolAndUserPool",
+    "useDefault": "default",
     "usernameAttributes": [
-      "phone_number"
+      "email"
     ],
-    "userPoolGroups": false,
-    "adminQueries": false,
     "triggers": {},
-    "hostedUI": false,
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
     "useEnabledMfas": true
   }
-}
+} 
