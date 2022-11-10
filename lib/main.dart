@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:tangled/amplifyconfiguration.dart';
 import 'package:tangled/auth/signin.dart';
 import 'package:tangled/auth/signup.dart';
-import 'package:tangled/auth/verify_otp.dart';
 import 'package:tangled/services/authService.dart';
 
 import 'authWrapper.dart';

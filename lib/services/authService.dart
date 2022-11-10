@@ -43,6 +43,7 @@ class AuthService extends ChangeNotifier {
       await Amplify.Auth.confirmSignUp(
           username: email, confirmationCode: confirmationCode);
       authState = AuthState.Authenticated;
+      print("Verification done");
       notifyListeners();
     } catch (err) {
       print(err);
@@ -55,10 +56,12 @@ class AuthService extends ChangeNotifier {
           await Amplify.Auth.signIn(username: email, password: password);
       if (signIn.isSignedIn) {
         authState = AuthState.Authenticated;
+        user = await Amplify.Auth.getCurrentUser();
         notifyListeners();
         return true;
       }
     } catch (err) {
+      print("Something went wrong hahahs..");
       print(err);
     }
     return false;
