@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import "package:flutter/material.dart";
+import 'package:tangled/auth/signin.dart';
 import 'package:tangled/auth/signup.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -23,7 +24,9 @@ class AuthScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 28),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, Signin.id);
+                  },
                   child: Text(
                     "Sign in",
                     style: TextStyle(

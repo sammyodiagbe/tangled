@@ -6,36 +6,42 @@ enum AuthState { Authenticated, NotAuthenticated }
 
 class AuthService extends ChangeNotifier {
   var authState = AuthState.NotAuthenticated;
+  AuthUser? user;
 
-  Future<AuthUser?> get user async {
+  Future<void> getUser() async {
     try {
       final usr = await Amplify.Auth.getCurrentUser();
-      return usr;
+      user = usr;
+      authState = AuthState.Authenticated;
+      notifyListeners();
     } catch (err) {}
-    return null;
   }
 
-  Future<void> createAccount(String name, String email, String password) async {
+  Future<bool> createAccount(String name, String email, String password) async {
     try {
-      await Amplify.Auth.signUp(
+      var createAccount = await Amplify.Auth.signUp(
         username: email,
         password: password,
         options: CognitoSignUpOptions(
           userAttributes: <CognitoUserAttributeKey, String>{
             CognitoUserAttributeKey.email: email,
+            CognitoUserAttributeKey.name: name
           },
         ),
       );
-      print("done signing you up");
+      if (createAccount.isSignUpComplete) {
+        return true;
+      }
     } catch (err) {
       print(err);
     }
+    return false;
   }
 
-  Future<void> VerifyOTP(String mobile, String confirmationCode) async {
+  Future<void> VerifyOTP(String email, String confirmationCode) async {
     try {
       await Amplify.Auth.confirmSignUp(
-          username: mobile, confirmationCode: confirmationCode);
+          username: email, confirmationCode: confirmationCode);
       authState = AuthState.Authenticated;
       notifyListeners();
     } catch (err) {
@@ -43,13 +49,27 @@ class AuthService extends ChangeNotifier {
     }
   }
 
-  void SignUserIn() {
-    authState = AuthState.Authenticated;
-    notifyListeners();
+  Future<bool> SignUserIn(String email, String password) async {
+    try {
+      final signIn =
+          await Amplify.Auth.signIn(username: email, password: password);
+      if (signIn.isSignedIn) {
+        authState = AuthState.Authenticated;
+        notifyListeners();
+        return true;
+      }
+    } catch (err) {
+      print(err);
+    }
+    return false;
   }
 
-  void signOut() {
-    authState = AuthState.NotAuthenticated;
-    notifyListeners();
+  Future<void> signOut() async {
+    try {
+      final signout = await Amplify.Auth.signOut();
+      authState = AuthState.NotAuthenticated;
+      user = null;
+      notifyListeners();
+    } catch (err) {}
   }
 }
