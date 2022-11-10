@@ -42,29 +42,6 @@ class _SigninState extends State<Signin> {
                       SizedBox(
                         height: 20,
                       ),
-
-                      // InternationalPhoneNumberInput(
-                      //   onInputChanged: (value) {
-                      //     String? number = value.phoneNumber;
-                      //     _emailAddress.text = number ?? "";
-                      //   },
-                      //   validator: (value) {
-                      //     if (value == null || value.isEmpty) {
-                      //       return "Phone number is required";
-                      //     }
-                      //   },
-                      //   spaceBetweenSelectorAndTextField: 5,
-                      //   inputDecoration: InputDecoration(
-                      //     filled: true,
-                      //     fillColor: Color(0xffEDF2F4),
-                      //     hintStyle: TextStyle(fontSize: 14),
-                      //     hintText: "Phone number",
-                      //     enabledBorder: OutlineInputBorder(
-                      //       borderSide: BorderSide.none,
-                      //       borderRadius: BorderRadius.circular(8.0),
-                      //     ),
-                      //   ),
-                      // ),
                       TextFormField(
                         controller: _emailAddress,
                         keyboardType: TextInputType.emailAddress,
@@ -123,7 +100,7 @@ class _SigninState extends State<Signin> {
                           }
                         },
                         child: Text(
-                          "Create account",
+                          "Sign in",
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                           ),
