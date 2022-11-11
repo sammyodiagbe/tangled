@@ -87,16 +87,7 @@ class _SigninState extends State<Signin> {
                           if (_formKey.currentState!.validate()) {
                             String email = _emailAddress.text;
                             String password = _passwordController.text;
-                            provider.SignUserIn(email, password).then((value) {
-                              if (value) {
-                                // Navigator.of(context).push(
-                                //   MaterialPageRoute(
-                                //     builder: (context) =>
-                                //         VerifyOTP(email: email),
-                                //   ),
-                                // );
-                              }
-                            });
+                            provider.SignUserIn(email, password);
                           }
                         },
                         child: Text(

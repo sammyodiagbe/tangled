@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:amplify_flutter/amplify_flutter.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 import 'package:tangled/services/authService.dart';
@@ -11,10 +14,10 @@ class AuthWrapper extends StatefulWidget {
 }
 
 class _AuthWrapperState extends State<AuthWrapper> {
+  late StreamSubscription<HubEvent> hubScription;
   @override
   void initState() {
-    // TODO: implement initState
-    _getAuthUser();
+    // TODO: implement initState\
     super.initState();
   }
 
@@ -27,7 +30,7 @@ class _AuthWrapperState extends State<AuthWrapper> {
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthService>(builder: (context, provider, child) {
-      if (provider.authState == AuthState.Authenticated) {
+      if (provider.authenticated) {
         return Home();
       }
       return AuthScreen();
