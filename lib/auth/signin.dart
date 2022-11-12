@@ -95,7 +95,8 @@ class _SigninState extends State<Signin> {
                                 await provider.SignUserIn(email, password);
 
                             if (signup) {
-                              Navigator.pushReplacementNamed(context, Home.id);
+                              Navigator.pushNamedAndRemoveUntil(context,
+                                  Home.id, (Route<dynamic> route) => false);
                             }
                           }
                         },

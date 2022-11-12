@@ -11,6 +11,7 @@ import 'auth/authScreen.dart';
 import 'home.dart';
 
 class AuthWrapper extends StatefulWidget {
+  static final id = "main_auth_screen";
   @override
   State<AuthWrapper> createState() => _AuthWrapperState();
 }
