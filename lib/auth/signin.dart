@@ -39,6 +39,9 @@ class _SigninState extends State<Signin> {
                           color: Color(0xff312F2F),
                         ),
                       ),
+                      Text(provider.authenticated
+                          ? "Authenticated"
+                          : "Not auth"),
                       SizedBox(
                         height: 20,
                       ),

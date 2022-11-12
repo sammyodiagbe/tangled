@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
+import 'package:tangled/auth/signin.dart';
 import 'package:tangled/services/authService.dart';
 
 import 'auth/authScreen.dart';
@@ -33,7 +34,7 @@ class _AuthWrapperState extends State<AuthWrapper> {
       if (provider.authenticated) {
         return Home();
       }
-      return AuthScreen();
+      return Signin();
     });
   }
 }

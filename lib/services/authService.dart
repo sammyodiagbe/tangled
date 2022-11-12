@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 enum AuthState { Authenticated, NotAuthenticated }
 
 class AuthService extends ChangeNotifier {
-  var authenticated = false;
+  var authenticated = true;
   AuthUser? user;
 
   Future<void> getUser() async {
@@ -57,6 +57,7 @@ class AuthService extends ChangeNotifier {
       );
       if (signIn.isSignedIn) {
         user = await Amplify.Auth.getCurrentUser();
+        print("User is signed in");
         authenticated = true;
         notifyListeners();
       }
