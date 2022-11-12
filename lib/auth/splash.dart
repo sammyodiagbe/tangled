@@ -6,9 +6,19 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Container(
-          child: Image.asset('assets/images/dating_image.png',
-              fit: BoxFit.contain),
-        ),
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/images/dating_image.png', fit: BoxFit.contain),
+            Text(
+              'Tangled',
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w700,
+              ),
+            )
+          ],
+        )),
       ),
     );
   }

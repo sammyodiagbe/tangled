@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:tangled/amplifyconfiguration.dart';
 import 'package:tangled/auth/signin.dart';
 import 'package:tangled/auth/signup.dart';
+import 'package:tangled/auth/splash.dart';
 import 'package:tangled/home.dart';
 import 'package:tangled/services/authService.dart';
 
