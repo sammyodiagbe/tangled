@@ -2,6 +2,7 @@
 
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
+import 'package:tangled/home.dart';
 
 import '../services/authService.dart';
 
@@ -86,11 +87,16 @@ class _SigninState extends State<Signin> {
                       ),
                       SizedBox(height: 20),
                       ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (_formKey.currentState!.validate()) {
                             String email = _emailAddress.text;
                             String password = _passwordController.text;
-                            provider.SignUserIn(email, password);
+                            final signup =
+                                await provider.SignUserIn(email, password);
+
+                            if (signup) {
+                              Navigator.pushReplacementNamed(context, Home.id);
+                            }
                           }
                         },
                         child: Text(

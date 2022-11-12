@@ -4,6 +4,7 @@ import 'package:amplify_flutter/amplify_flutter.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 import 'package:tangled/auth/signin.dart';
+import 'package:tangled/auth/splash.dart';
 import 'package:tangled/services/authService.dart';
 
 import 'auth/authScreen.dart';
@@ -30,11 +31,17 @@ class _AuthWrapperState extends State<AuthWrapper> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AuthService>(builder: (context, provider, child) {
-      if (provider.authenticated) {
-        return Home();
-      }
-      return Signin();
-    });
+    return FutureBuilder(
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          if (snapshot.data == true) {
+            return Home();
+          }
+          return AuthScreen();
+        }
+        return SplashScreen();
+      },
+      future: Provider.of<AuthService>(context, listen: false).getUser(),
+    );
   }
 }

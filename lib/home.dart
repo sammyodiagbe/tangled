@@ -1,8 +1,10 @@
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
+import 'package:tangled/authWrapper.dart';
 import 'package:tangled/services/authService.dart';
 
 class Home extends StatelessWidget {
+  static final id = "home_screen";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,8 +18,13 @@ class Home extends StatelessWidget {
             Text("Welcome home"),
             SizedBox(height: 15),
             ElevatedButton(
-              onPressed: () {
-                Provider.of<AuthService>(context, listen: false).signOut();
+              onPressed: () async {
+                final logout =
+                    await Provider.of<AuthService>(context, listen: false)
+                        .signOut();
+                if (logout) {
+                  Navigator.pushNamed(context, AuthWrapper.id);
+                }
               },
               child: Text("Log out"),
             )

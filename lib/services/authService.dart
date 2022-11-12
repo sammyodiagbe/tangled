@@ -5,15 +5,18 @@ import 'package:flutter/foundation.dart';
 enum AuthState { Authenticated, NotAuthenticated }
 
 class AuthService extends ChangeNotifier {
-  var authenticated = true;
+  var authenticated = false;
   AuthUser? user;
 
-  Future<void> getUser() async {
+  Future<bool> getUser() async {
     try {
       final usr = await Amplify.Auth.getCurrentUser();
-      user = usr;
+      user = user;
+      authenticated = true;
       notifyListeners();
+      return true;
     } catch (err) {}
+    return false;
   }
 
   Future<bool> createAccount(String name, String email, String password) async {
@@ -49,7 +52,7 @@ class AuthService extends ChangeNotifier {
     }
   }
 
-  Future<void> SignUserIn(String email, String password) async {
+  Future<bool> SignUserIn(String email, String password) async {
     try {
       final signIn = await Amplify.Auth.signIn(
         username: email,
@@ -57,21 +60,22 @@ class AuthService extends ChangeNotifier {
       );
       if (signIn.isSignedIn) {
         user = await Amplify.Auth.getCurrentUser();
-        print("User is signed in");
         authenticated = true;
-        notifyListeners();
+        return true;
       }
     } catch (err) {
       print("Something went wrong hahahs..");
       print(err);
     }
+    return false;
   }
 
-  Future<void> signOut() async {
+  Future<bool> signOut() async {
     try {
       final signout = await Amplify.Auth.signOut();
       authenticated = false;
-      notifyListeners();
+      return true;
     } catch (err) {}
+    return false;
   }
 }

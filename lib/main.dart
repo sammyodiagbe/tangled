@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:tangled/amplifyconfiguration.dart';
 import 'package:tangled/auth/signin.dart';
 import 'package:tangled/auth/signup.dart';
+import 'package:tangled/home.dart';
 import 'package:tangled/services/authService.dart';
 
 import 'authWrapper.dart';
@@ -38,8 +39,11 @@ class TangledApp extends StatelessWidget {
           fontFamily: "Nunito",
         ),
         routes: {
+          Home.id: (context) => Home(),
           Signup.id: (context) => Signup(),
-          Signin.id: (context) => Signin()
+          Signin.id: (context) => Signin(),
+          AuthWrapper.id: (context) => AuthWrapper()
+          // Home.id: (context) => Home()
         },
         debugShowCheckedModeBanner: false,
         home: AuthWrapper(),
