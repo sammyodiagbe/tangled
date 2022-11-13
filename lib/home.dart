@@ -17,6 +17,8 @@ class Home extends StatelessWidget {
           children: [
             Text("Welcome home"),
             SizedBox(height: 15),
+            Text(Provider.of<AuthService>(context).user!.username),
+            SizedBox(height: 5),
             ElevatedButton(
               onPressed: () async {
                 final logout =
