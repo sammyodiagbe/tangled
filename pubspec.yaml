@@ -39,6 +39,7 @@ dependencies:
   amplify_flutter: ^0.6.9
   amplify_auth_cognito: ^0.6.9
   intl_phone_number_input: ^0.7.1
+  amplify_datastore: ^0.6.10
 
 dev_dependencies:
   flutter_test:
